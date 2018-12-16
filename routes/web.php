@@ -13,6 +13,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes();
+
+Route::get('/user/activation/{token}', 'Auth\RegisterController@userActivation');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/{user_id}/profile', 'ProfileController@create')->name('profile.create');
 Route::get('/user/{user_id}/profile/{profile_id}', 'ProfileController@show')->name('profile.show');
